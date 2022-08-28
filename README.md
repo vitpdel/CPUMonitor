@@ -1,2 +1,2 @@
 # CPUMonitor
-A CPU and RAM monitor made with python
+A CPU and RAM usage monitor made with python
