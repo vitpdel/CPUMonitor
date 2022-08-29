@@ -35,13 +35,7 @@ def cpuMonitor(cpuUsage, bars=50):
 
 def memMonitor(memoryUsage,    bars=50):
     #Memory Informations
-    print("="*30, "Memory Info", "="*30)
-
-    #Memory Details
-
-    mem =   ps.virtual_memory()
-    print(f"Memory Total: {ps.get_size(mem.total)}")
-
+    
     memoryPercent   =   (memoryUsage    /   100.0)
     memoryBar   =   "#" *   int(memoryPercent   *   bars)+"-"*(bars -   int(memoryPercent*bars))
     
@@ -54,25 +48,6 @@ def monitor():
     cpuMonitor(ps.cpu_percent(), 30)
     memMonitor(ps.virtual_memory().percent, 30)
 
-#def cpu(cpuUsage,   bars=50):
-    #clear()
-
-#    cpuPercent  =   (cpuUsage   /   100.0)  #To show the percentage of usage
-#    cpuBar =   "#" *   int(cpuPercent  *   bars)+"-"*(bars -   int(cpuPercent*   bars))
-#
-#    print("="*40,   "CPU Info", "="*40)
-#    
-#    # Cores informations
-#    print(f"Physical cores: {ps.cpu_count(logical=False)}")
-#    print(f"Total cores: {ps.cpu_count(logical=True)}")
-#
-#    # CPU frequencies
-#    cpufreq =   ps.cpu_freq()
-#    print(f"Max frequency:     {cpufreq.max:.2f}Mhz")
-#    print(f"Min frequency:     {cpufreq.min:.2f}Mhz")
-#    print(f"Current frequency: {cpufreq.current:.2f}Mhz")
-#
-#    print(f"\rCPU Usage:    |{cpuBar}| {cpuUsage:.2f}%  ",    end="\n")
 
 while   True:
     # To update the monitor
