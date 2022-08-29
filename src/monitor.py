@@ -50,9 +50,6 @@ def monitor():
 
 
 while   True:
-    # To update the monitor
-    #cpu(ps.cpu_percent)
-    #monitor(ps.cpu_percent(),    ps.virtual_memory().percent,   30)
     monitor()
     sleep(0.5)
 
