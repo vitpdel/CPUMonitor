@@ -6,6 +6,16 @@ def clear():
     os.system("clear")
 
 
+def size(bytes, suffix="B"):
+    # Scales bytes to its proper format
+
+    factor  =   1024
+    for unit    in  ["","K","M","G","T","P"]:
+        if  bytes   <   factor:
+            return  f"{bytes:.2f}{unit}{suffix}"
+        bytes   /=  factor
+
+
 def cpuMonitor(cpuUsage, bars=50):
     # Represent how many percent CPU or Memory being use with bars 
 
@@ -34,12 +44,19 @@ def cpuMonitor(cpuUsage, bars=50):
     
 
 def memMonitor(memoryUsage,    bars=50):
-    #Memory Informations
-    
+    # Memory Informations
+    print("\n","="*28,   "Memory Info",  "="*28)
+
+    # Show emory details
+    mem =   ps.virtual_memory()
+    print(f"Total memory:         {size(mem.total)}")
+    print(f"Avaible memory:       {size(mem.available)}")
+    print(f"Memory used:          {size(mem.used)}")
+
     memoryPercent   =   (memoryUsage    /   100.0)
     memoryBar   =   "#" *   int(memoryPercent   *   bars)+"-"*(bars -   int(memoryPercent*bars))
     
-    print(f"\nMemory Usage: |{memoryBar}| {memoryUsage:.2f}%  ",   end="\r")
+    print(f"Memory Usage:        |{memoryBar}| {memoryUsage}%  ",   end="\r")
 
 
 def monitor():
