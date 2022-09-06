@@ -20,7 +20,7 @@ def cpuMonitor(cpuUsage, bars=50):
     # Represent how many percent CPU or Memory being use with bars 
 
     #CPU Informations
-    print("="*30,"CPU Info", "="*30)
+    print("="*30," CPU Info ", "="*31) #70
 
     # Cores informations
     print(f"Physical cores:       {ps.cpu_count(logical=False)}")
@@ -45,7 +45,7 @@ def cpuMonitor(cpuUsage, bars=50):
 
 def memMonitor(memoryUsage,    bars=50):
     # Memory Informations
-    print("\n","="*28,   "Memory Info",  "="*28)
+    print("="*30,   "Memory Info",  "="*30) 
 
     # Show emory details
     mem =   ps.virtual_memory()
